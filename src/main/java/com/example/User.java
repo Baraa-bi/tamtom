@@ -2,10 +2,8 @@ package com.example;
 
 
 import javax.persistence.Id;
-
+import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 
 @Enitiy
 public class User {
