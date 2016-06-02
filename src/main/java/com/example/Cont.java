@@ -67,8 +67,8 @@ class contt {
 	@RequestMapping("/save")
 	public User saveUser(@RequestParam("firstName") String firstName , @RequestParam("lastName") String lastName )
 	{
-			mongo.save(new User(firstName,lastName));
-			return mongo.findByFirstName(firstName);
+			return mongo.findOne(mongo.save(new User(firstName,lastName)).id);
+			
 	}
 	
 	
