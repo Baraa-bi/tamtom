@@ -42,7 +42,7 @@ public class Cont {
 // MongoDB Repository 
 
 
-interface MongoRepo extends CrudRepository <User, String> {
+interface MongoRepo extends CrudRepository <User, Long> {
 		
 			User findByFirstName (String name);
 }
