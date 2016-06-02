@@ -57,7 +57,7 @@ class contt {
 	MongoRepo mongo ;
 	
 	@RequestMapping("/get/{id}")
-	public User getUser(@PathVariable("id") String id )
+	public User getUser(@PathVariable("id") Long id )
 	{
 	
 		return mongo.findOne(id);
