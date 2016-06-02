@@ -3,23 +3,25 @@ package com.example;
 
 import javax.persistence.Id;
 
+import javax.persistence.Entity;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Document
+@Enitiy
 public class User {
 
 	@Id
-	String id ; 
+	@GeneratedValue
+	long id ; 
 	String firstName ;
 	String lastName;
 	
 
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
