@@ -23,19 +23,19 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @SpringBootApplication 
 public class BootApplication {
 	
-	
+	 @Bean
+    @Primary
+    @ConfigurationProperties(prefix = "spring.datasource")
+    public DataSource dataSource() {
+        return DataSourceBuilder.create().build();
+    }
+    
  public static void main(String[] args)
  {
 	 
-		ApplicationContext ctx = SpringApplication.run(BootApplication.class, args);
+	SpringApplication.run(BootApplication.class, args);
 		
 		
-		
-		String[] beanNames = ctx.getBeanDefinitionNames();
-	        Arrays.sort(beanNames);
-	        for (String beanName : beanNames) {
-	            System.out.println(beanName);
-	        }
  }
 	
 	
