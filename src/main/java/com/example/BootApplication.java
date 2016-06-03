@@ -15,12 +15,8 @@ import org.springframework.context.annotation.Primary;
 @SpringBootApplication 
 public class BootApplication {
 	
-    @Bean
-    @Primary
-    @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource dataSource() {
-        return DataSourceBuilder.create().build();
-    }
+ 
+ 
 
     
  public static void main(String[] args)
