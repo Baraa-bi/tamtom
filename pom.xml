@@ -30,6 +30,13 @@
     <artifactId>postgresql</artifactId>
     <version>9.1-901-1.jdbc4</version>
 </dependency>
+<!-- http://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>2.0.6</version>
+</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -70,6 +77,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-hateoas</artifactId>
 		</dependency>
+		<!-- http://mvnrepository.com/artifact/org.springframework.boot/spring-boot-autoconfigure -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-autoconfigure</artifactId>
+    <version>1.0.0.RELEASE</version>
+</dependency>
+
 	</dependencies>
 	
 	<build>
