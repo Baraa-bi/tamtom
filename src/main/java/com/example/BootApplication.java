@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Primary;
 
 
 @SpringBootApplication 
-@ConfigurationProperties(prefix = "spring.datasource")
 public class BootApplication {
 	
     @Bean
