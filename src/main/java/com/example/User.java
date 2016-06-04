@@ -4,9 +4,10 @@ package com.example;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import java.io.Serializable;
 
 @Entity
-public class User {
+public class User implements Serializable{
 
 	@Id
 	@GeneratedValue
