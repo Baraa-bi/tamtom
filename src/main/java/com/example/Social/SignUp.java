@@ -38,12 +38,12 @@ public class SignUp {
 		if(result.hasErrors())
 		{
 			model.addAttribute("user",user);
-			return "/social/home";
+			return "home";
 		}
 		else
 			{
 			jpaRepo.save(user);
-			return "/social/user";
+			return "user";
 			}
 	}
 	
