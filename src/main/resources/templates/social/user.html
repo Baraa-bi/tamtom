@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+    <script src="project.js"></script>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>The Judge</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+    <style type="text/css">
+   body {
+    background-color:#BBDEFB;
+     }
+</style>
+</head>
+<body>
+
+
+
+
+    			
+<div id="wrapper" style="text-align: center">    
+	<div id="yourdiv" style="display: inline-block;">	
+	<div class="row">
+	
+		<div class="container">
+		<br/>
+	<div class="col-lg-3 col-md-4">
+	<div class="panel">
+			<h4>User Name : <small th:text="${user.userName}"></small></h4>
+			<h4>Email : <small th:text="${user.emailAddress}"></small></h4>
+			<h4>Phone : <small th:text="${user.phoneNo}"></small></h4>
+			</div>
+	</div>
+	
+		<div class="col-lg-6 col-md-8">
+	<div class="panel">
+			<br/><br/>
+			USER Problems
+			<form  action="/post" >
+			<input type="text" name="handel" class="form-control" rows="5" cols="100" placeholder="Write some posts here :D"></input>
+				<button type="submit" class="btn btn-info btn-block">Get problems</button>
+            </form>
+			</div>
+		</div>
+			</div>
+	</div>
+        <div class="container">
+							<h1>CodeForces Solved Problems</h1>
+			<div class="panel" >
+                <div class="row">
+
+                    <div class="col-sm-4">
+                      <img th:attr=" src =${titlePhoto}"/>
+                   </div>
+
+                    <div class="col-sm-6">
+                   <h4>
+                    first Name : <b th:text="${firstName}"></b><br/><br/>
+                    last Name  : <b th:text="${lastName}"></b><br/><br/>
+                    Handle  : <b th:text="${handle}"></b><br/><br/>
+                    organization  : <b th:text="${organization}"><br/></b><br/><br/>
+                    rank  : <b th:text="${rank}"></b><br/><br/>
+                    rating  : <b th:text="${rating}"></b><br/><br/>
+                   </h4>
+                    </div>
+                </div>
+        <div class="row">
+
+                <th:block cellspacing="10">
+                    <div class="col-sm-3">
+                        <h1>Problems "A"</h1>
+                    </div>
+                    <div class="col-sm-9">
+                        <br/><br/>
+                        <tr th:each="user ,i  : ${problems}" th:if="${#strings.endsWith(user.key,'A')}">
+                            <a 	type="button" class="btn " th:attr="href =${user.key}" th:text="${user.value}">link</a>
+
+                        </tr>
+                    </div>
+                    <hr/>
+                    <div class="col-sm-3">
+                        <h1>Problems "B"</h1>
+                    </div>
+                    <div class="col-sm-9">
+                        <br/><br/>
+                        <tr th:each="user  : ${problems}" th:if="${#strings.endsWith(user.key,'B')}">
+                            <a 	type="button" class="btn btn-primary" th:attr="href =${user.key}" th:text="${user.value}">link</a>
+                        </tr>
+                    </div>
+                    <hr/>
+                    <div class="col-sm-3">
+                        <h1>Problems "C"</h1>
+                    </div>
+                    <div class="col-sm-9">
+                        <br/><br/>
+                        <tr th:each="user  : ${problems}" th:if="${#strings.endsWith(user.key,'C')}">
+                            <a 	type="button" class="btn btn-primary" th:attr="href =${user.key}" th:text="${user.value}">link</a>
+                        </tr>
+                    </div>
+                    <hr/>
+                    <div class="col-sm-3">
+                        <h1>Problems "D"</h1>
+                    </div>
+                    <div class="col-sm-9">
+                        <br/><br/>
+                        <tr th:each="user  : ${problems}" th:if="${#strings.endsWith(user.key,'D')}">
+                            <a 	type="button" class="btn btn-primary" th:attr="href =${user.key}" th:text="${user.value}">link</a>
+                        </tr>
+                    </div>
+                    <hr/>
+                    <div class="col-sm-3">
+                        <h1>Problems "E"</h1>
+                    </div>
+                    <div class="col-sm-9">
+                        <br/><br/>
+                        <tr th:each="user  : ${problems}" th:if="${#strings.endsWith(user.key,'E')}">
+                            <a 	type="button" class="btn btn-primary" th:attr="href =${user.key}" th:text="${user.value}">link</a>
+                        </tr>
+                    </div>
+                    <hr/>
+                    <div class="col-sm-3">
+                        <h1>Problems "F"</h1>
+                    </div>
+                    <div class="col-sm-9">
+                        <br/><br/>
+                        <tr th:each="user  : ${problems}" th:if="${#strings.endsWith(user.key,'F')}">
+                            <a 	type="button" class="btn btn-primary" th:attr="href =${user.key}" th:text="${user.value}">link</a>
+                        </tr>
+                    </div>
+                    <hr/>
+
+                </th:block>
+
+        </div>
+            </div>
+
+    </div>
+    </div>
+    </div>
+</body>
+</html>
