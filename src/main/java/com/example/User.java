@@ -1,54 +1,74 @@
-package com.example;
+package com.example.Social;
 
 
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
-import java.io.Serializable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
-@Entity(name="Users")
-public class User implements Serializable{
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.stereotype.Service;
 
+
+@Entity(name="JudgeUsers")
+public class User {
+	
+	
 	@Id
 	@GeneratedValue
-	Long id ; 
-	String firstName ;
-	String lastName;
+	Long  id;
 	
+	@NotEmpty
+	String userName;
+	
+	@Size(min=6)
+	String password;
+	
+	String emailAddress;
 
+
+	long phoneNo;
+	
+	
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public String getFirstName() {
-		return firstName;
+	public String getUserName() {
+		return userName;
 	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-
-	public String getLastName() {
-		return lastName;
+	public String getPassword() {
+		return password;
 	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public User()
-	{
-		
+	public String getEmailAddress() {
+		return emailAddress;
 	}
-
-	public User(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
-
+	public long getPhoneNo() {
+		return phoneNo;
+	}
+	public void setPhoneNo(long phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", emailAddress=" + emailAddress
+				+ ", phoneNo=" + phoneNo + "]";
+	}
+	
 	
 	
 }
