@@ -17,10 +17,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import com.example.Social.JpaRepository;
-import com.googlecode.charts4j.Color;
-import com.googlecode.charts4j.GCharts;
-import com.googlecode.charts4j.PieChart;
-import com.googlecode.charts4j.Slice;
 import org.springframework.web.client.RestTemplate;
 
 
