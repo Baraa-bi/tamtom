@@ -44,7 +44,7 @@ public class Login {
 	public String login(User user ,Locale locale , Model model)
 	{
 		model.addAttribute("locale",locale);
-		return "/home";
+		return "home";
 	}
 	
 	
@@ -52,7 +52,7 @@ public class Login {
 	public String visit(@RequestParam(value="id") Long id , Model model)
 	{
 		model.addAttribute("user", jpaRepo.findOne(id));
-		return "/visitUser";
+		return "visitUser";
 	}
 	
 	@RequestMapping("/signIn")
@@ -61,12 +61,12 @@ public class Login {
 		if(jpaRepo.findByUserNameAndPassword(user.getUserName(), user.getPassword())==null)
 		{
 			model.addAttribute("invalid","invalid userName or Password");
-			return "/home";
+			return "home";
 		}
 		else
 			{
 			model.addAttribute("user",jpaRepo.findByUserName(user.getUserName()));
-			return "/user";
+			return "user";
 			} 
 	}
 
@@ -104,7 +104,7 @@ public class Login {
 
 
 		model.addAttribute("problems",map);
-		return "/user";
+		return "user";
 	}
 
 
