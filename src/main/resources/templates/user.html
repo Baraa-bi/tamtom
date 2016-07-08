@@ -80,7 +80,7 @@
                     <div class="col-sm-9">
                         <br/><br/>
                         <tr th:each="user ,i  : ${problems}" th:if="${#strings.endsWith(user.key,'A')}">
-                            <a 	type="button" class="btn " th:attr="href =${user.key}" th:text="${user.value}">link</a>
+                            <a 	type="button" class="btn btn-primary" th:attr="href =${user.key}" th:text="${user.value}">link</a>
 
                         </tr>
                     </div>
