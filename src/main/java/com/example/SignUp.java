@@ -1,4 +1,4 @@
-package com.example;
+package com.example.Social;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
