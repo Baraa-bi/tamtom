@@ -102,7 +102,7 @@ public class Login {
 		model.addAttribute("rating",object1.getString("rating"));
 
 
-
+		model.addAttribute("handel",handel);
 		model.addAttribute("problems",map);
 		return "user";
 	}
