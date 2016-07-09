@@ -17,6 +17,18 @@
    body {
     background-color:#BBDEFB;
      }
+     img {
+    border-radius: 50%;
+}
+.btn-primary {
+ width: 12em;  height: 3em;
+}
+.d {
+border: 2px solid #CE93D8;
+ width: 15em;  height: 3em;
+}
+
+
 </style>
 </head>
 <body>
@@ -31,31 +43,25 @@
 	
 		<div class="container">
 		<br/>
-	<div class="col-lg-3 col-md-4">
-	<div class="panel">
-			<h4>User Name : <small th:text="${user.userName}"></small></h4>
-			<h4>Email : <small th:text="${user.emailAddress}"></small></h4>
-			<h4>Phone : <small th:text="${user.phoneNo}"></small></h4>
-			</div>
-	</div>
-	
-		<div class="col-lg-6 col-md-8">
 	<div class="panel">
 			<br/><br/>
-			USER Problems
+            <img src="http://st.codeforces.com/s/72960/images/codeforces-logo-with-telegram.png" width="400"/>
 			<form  action="/post" >
-			<input type="text" name="handel" class="form-control" rows="5" cols="100" placeholder="Write some posts here :D"></input>
-				<button type="submit" class="btn btn-info btn-block">Get problems</button>
+			<input type="text" name="handel" class="form-control" rows="5" cols="100" placeholder="Enter Handle"/>
+                <br/>
+      			<button type="submit" class="btn btn-info ">Get problems</button>
+
             </form>
 			</div>
-		</div>
+
 			</div>
 	</div>
         <div class="container">
-							<h1>CodeForces Solved Problems</h1>
-			<div class="panel" >
+			<div class="panel panel-default" >
+                <div class="panel-heading"><h3>CodeForces Solved Problems</h3></div>
+                <div class="panel-body">
                 <div class="row">
-
+                   <br/>
                     <div class="col-sm-4">
                       <img th:attr=" src =${titlePhoto}"/>
                    </div>
@@ -79,70 +85,82 @@
                     </div>
                     <div class="col-sm-9">
                         <br/><br/>
-                        <tr th:each="user ,i  : ${problems}" th:if="${#strings.endsWith(user.key,'A')}">
-                            <a 	type="button" class="btn btn-primary" th:attr="href =${user.key}" th:text="${user.value}">link</a>
-
+                        <tr  th:each="user ,i  : ${problems} " th:if="${#strings.endsWith(user.key,'A')}">
+                            <a class="btn d" th:attr="href =${user.key}" th:text="${user.value}">link</a>
                         </tr>
                     </div>
+                    <br/>
                     <hr/>
+                    <br/>
                     <div class="col-sm-3">
                         <h1>Problems "B"</h1>
                     </div>
                     <div class="col-sm-9">
                         <br/><br/>
                         <tr th:each="user  : ${problems}" th:if="${#strings.endsWith(user.key,'B')}">
-                            <a 	type="button" class="btn btn-primary" th:attr="href =${user.key}" th:text="${user.value}">link</a>
+                            <a 	type="button" class="btn d" th:attr="href =${user.key}" th:text="${user.value}">link</a>
                         </tr>
                     </div>
+                    <br/>
                     <hr/>
+                    <br/>
                     <div class="col-sm-3">
                         <h1>Problems "C"</h1>
                     </div>
                     <div class="col-sm-9">
                         <br/><br/>
                         <tr th:each="user  : ${problems}" th:if="${#strings.endsWith(user.key,'C')}">
-                            <a 	type="button" class="btn btn-primary" th:attr="href =${user.key}" th:text="${user.value}">link</a>
+                            <a 	type="button" class="btn d" th:attr="href =${user.key}" th:text="${user.value}">link</a>
                         </tr>
                     </div>
+                    <br/>
                     <hr/>
+                    <br/>
                     <div class="col-sm-3">
                         <h1>Problems "D"</h1>
                     </div>
                     <div class="col-sm-9">
                         <br/><br/>
                         <tr th:each="user  : ${problems}" th:if="${#strings.endsWith(user.key,'D')}">
-                            <a 	type="button" class="btn btn-primary" th:attr="href =${user.key}" th:text="${user.value}">link</a>
+                            <a 	type="button" class="btn d" th:attr="href =${user.key}" th:text="${user.value}">link</a>
                         </tr>
                     </div>
+                    <br/>
                     <hr/>
+                    <br/>
                     <div class="col-sm-3">
                         <h1>Problems "E"</h1>
                     </div>
                     <div class="col-sm-9">
                         <br/><br/>
                         <tr th:each="user  : ${problems}" th:if="${#strings.endsWith(user.key,'E')}">
-                            <a 	type="button" class="btn btn-primary" th:attr="href =${user.key}" th:text="${user.value}">link</a>
+                            <a 	type="button" class="btn d" th:attr="href =${user.key}" th:text="${user.value}">link</a>
                         </tr>
                     </div>
+                    <br/>
                     <hr/>
+                    <br/>
                     <div class="col-sm-3">
                         <h1>Problems "F"</h1>
                     </div>
                     <div class="col-sm-9">
                         <br/><br/>
                         <tr th:each="user  : ${problems}" th:if="${#strings.endsWith(user.key,'F')}">
-                            <a 	type="button" class="btn btn-primary" th:attr="href =${user.key}" th:text="${user.value}">link</a>
+                            <a 	type="button" class="btn d " th:attr="href =${user.key}" th:text="${user.value}">link</a>
                         </tr>
                     </div>
+                    <br/>
                     <hr/>
+                    <br/>
 
                 </th:block>
 
-        </div>
+              </div>
             </div>
+                </div>
 
-    </div>
-    </div>
+         </div>
+     </div>
     </div>
 </body>
 </html>
