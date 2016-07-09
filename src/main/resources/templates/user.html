@@ -47,7 +47,7 @@ border: 2px solid #CE93D8;
 			<br/><br/>
             <img src="http://st.codeforces.com/s/72960/images/codeforces-logo-with-telegram.png" width="400"/>
 			<form  action="/post" >
-			<input type="text" name="handel" class="form-control" rows="5" cols="100" th:text="${handel}" placeholder="Enter Handle"/>
+			<input type="text" name="handel" class="form-control" rows="5" cols="100" th:attr="value=${handel}" placeholder="Enter Handle"/>
                 <br/>
       			<button type="submit" class="btn btn-info ">Get problems</button>
 
