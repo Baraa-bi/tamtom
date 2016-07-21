@@ -69,42 +69,44 @@ public class Login {
 			return "user";
 			} 
 	}
-
-	@RequestMapping("/post")
-	public String codeforces(@RequestParam("handel") String handel,Model model , @ModelAttribute User user) throws JSONException
+@RequestMapping("/post")
+	public String codeforces(@RequestParam(value = "handel" , defaultValue ="tourist") String handel,Model model , @ModelAttribute User user) throws JSONException
 	{
 		RestTemplate restTemplate = new RestTemplate();
-		String text = restTemplate.getForObject("http://codeforces.com/api/user.status?handle="+handel+"&from=1&count=100000",String.class);
-        JSONObject object = new JSONObject(text);
-
-        JSONArray array = object.getJSONArray("result");
-        HashMap<String,String> map = new HashMap<>();
-        for (int i = 0 ;i<array.length();i++)
-        {
-            if(array.getJSONObject(i).getString("verdict").equals("OK"))
-            {
-               String s=array.getJSONObject(i).getJSONObject("problem").getString("index");
-			   String s1=array.getJSONObject(i).getString("contestId");
-               String problemName =array.getJSONObject(i).getJSONObject("problem").getString("name");
-			   map.put("http://codeforces.com/problemset/problem/"+s1+"/"+s,problemName);
-            }
-
-        }
-
-		String text1 = restTemplate.getForObject("http://codeforces.com/api/user.info?handles="+handel,String.class);
-		JSONObject object1 =new JSONObject(text1).getJSONArray("result").getJSONObject(0);
-		model.addAttribute("firstName",object1.getString("firstName"));
-		model.addAttribute("lastName",object1.getString("lastName"));
-		model.addAttribute("handle",object1.getString("handle"));
-		model.addAttribute("titlePhoto",object1.getString("titlePhoto"));
-		model.addAttribute("organization",object1.getString("organization"));
-		model.addAttribute("rank",object1.getString("rank"));
-		model.addAttribute("rating",object1.getString("rating"));
+		String text = restTemplate.getForObject("http://codeforces.com/api/user.status?handle=" + handel + "&from=1&count=100000", String.class);
 
 
-		model.addAttribute("handel",handel);
-		model.addAttribute("problems",map);
-		return "user";
+
+		JSONObject object = new JSONObject(text);
+
+			JSONArray array = object.getJSONArray("result");
+
+			HashMap<String, String> map = new HashMap<>();
+			for (int i = 0; i < array.length(); i++) {
+				if (array.getJSONObject(i).getString("verdict").equals("OK")) {
+					String s = array.getJSONObject(i).getJSONObject("problem").getString("index");
+					String s1 = array.getJSONObject(i).getString("contestId");
+					String problemName = array.getJSONObject(i).getJSONObject("problem").getString("name");
+					map.put("http://codeforces.com/problemset/problem/" + s1 + "/" + s, problemName);
+				}
+
+			}
+
+			String text1 = restTemplate.getForObject("http://codeforces.com/api/user.info?handles=" + handel, String.class);
+			JSONObject object1 = new JSONObject(text1).getJSONArray("result").getJSONObject(0);
+			model.addAttribute("firstName", object1.isNull("firstName") ? "" : object1.getString("firstName"));
+			model.addAttribute("lastName", object1.isNull("lastName") ? "" : object1.getString("lastName"));
+			model.addAttribute("handle", object1.getString("handle"));
+			model.addAttribute("titlePhoto", object1.getString("titlePhoto"));
+			model.addAttribute("organization", object1.isNull("organization") ? "" : object1.getString("organization"));
+			model.addAttribute("rank", object1.getString("rank"));
+			model.addAttribute("rating", object1.getString("rating"));
+			model.addAttribute("problemsSolved", map.size());
+
+
+			model.addAttribute("problems", map);
+
+			return "user";
 	}
 
 
