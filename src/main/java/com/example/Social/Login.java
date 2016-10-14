@@ -95,7 +95,7 @@ public class Login {
 
 			}
 
-			String text1 = restTemplate.getForObject("http://codeforces.com/api/user.info?handles=" + handle, String.class);
+			String text1 = restTemplate.getForObject("http://codeforces.com/api/user.info?handles=" + handel, String.class);
 			JSONObject object1 = new JSONObject(text1).getJSONArray("result").getJSONObject(0);
 			model.addAttribute("firstName", object1.isNull("firstName") ? "" : object1.getString("firstName"));
 			model.addAttribute("lastName", object1.isNull("lastName") ? "" : object1.getString("lastName"));
