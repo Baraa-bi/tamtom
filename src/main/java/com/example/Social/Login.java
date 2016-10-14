@@ -99,7 +99,7 @@ public class Login {
 			JSONObject object1 = new JSONObject(text1).getJSONArray("result").getJSONObject(0);
 			model.addAttribute("firstName", object1.isNull("firstName") ? "" : object1.getString("firstName"));
 			model.addAttribute("lastName", object1.isNull("lastName") ? "" : object1.getString("lastName"));
-			model.addAttribute("handle", object1.isNull("handel") ? "" : object1.getString("handel"));
+			model.addAttribute("handle", object1.isNull("handel") ? "" : object1.getString("handle"));
 			model.addAttribute("titlePhoto", object1.getString("titlePhoto"));
 			model.addAttribute("organization", object1.isNull("organization") ? "" : object1.getString("organization"));
 			model.addAttribute("rank", object1.isNull("rank") ? "" : object1.getString("rank"));
