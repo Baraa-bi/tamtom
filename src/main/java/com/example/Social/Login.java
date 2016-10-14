@@ -71,10 +71,10 @@ public class Login {
 			} 
 	}
 @RequestMapping("/post")
-	public String codeforces(@RequestParam(value = "handle" , defaultValue ="tourist") String handle,Model model , @ModelAttribute User user) throws JSONException
+	public String codeforces(@RequestParam(value = "handel" , defaultValue ="tourist") String handel,Model model , @ModelAttribute User user) throws JSONException
 	{
 		RestTemplate restTemplate = new RestTemplate();
-		String text = restTemplate.getForObject("http://codeforces.com/api/user.status?handle=" + handle + "&from=1&count=100000", String.class);
+		String text = restTemplate.getForObject("http://codeforces.com/api/user.status?handle=" + handel + "&from=1&count=100000", String.class);
 
 		if(text==null||text.isEmpty())
 			return "user";
@@ -99,7 +99,7 @@ public class Login {
 			JSONObject object1 = new JSONObject(text1).getJSONArray("result").getJSONObject(0);
 			model.addAttribute("firstName", object1.isNull("firstName") ? "" : object1.getString("firstName"));
 			model.addAttribute("lastName", object1.isNull("lastName") ? "" : object1.getString("lastName"));
-			model.addAttribute("handle", object1.isNull("handle") ? "" : object1.getString("handle"));
+			model.addAttribute("handle", object1.isNull("handel") ? "" : object1.getString("handel"));
 			model.addAttribute("titlePhoto", object1.getString("titlePhoto"));
 			model.addAttribute("organization", object1.isNull("organization") ? "" : object1.getString("organization"));
 			model.addAttribute("rank", object1.isNull("rank") ? "" : object1.getString("rank"));
