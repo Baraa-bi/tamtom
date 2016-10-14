@@ -20,7 +20,7 @@ public class upload {
     @RequestMapping("/uploadImage")
     public String upload(@RequestParam("file") MultipartFile file) throws IOException {
         map.put(file.getOriginalFilename(),file);
-        return "Your image has been uploaded successfully :D";
+        return "Your image has been uploaded successfully :D -> "+file.getOriginalFilename();
     }
     @RequestMapping("/getImage")
     public MultipartFile get(@RequestParam("name") String name) {
