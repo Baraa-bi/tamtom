@@ -76,7 +76,7 @@ public class Login {
 		RestTemplate restTemplate = new RestTemplate();
 		String text = restTemplate.getForObject("http://codeforces.com/api/user.status?handle=" + handle + "&from=1&count=100000", String.class);
 
-		if(text.isNull())
+		if(text==null||text.isEmpty())
 			return "user";
 
 		JSONObject object = new JSONObject(text);
