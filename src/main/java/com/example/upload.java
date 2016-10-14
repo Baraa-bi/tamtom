@@ -21,8 +21,8 @@ public class upload {
     @RequestMapping("/uploadImage")
     public String upload(@RequestParam("file") MultipartFile file) throws IOException {
 
-        File file1 = new File("/"+file.getOriginalFilename());
-        file.transferTo(file1);
+        //File file1 = new File("/"+file.getOriginalFilename());
+        //file.transferTo(file1);
 
         return "Your image has been uploaded successfully :D";
     }
