@@ -35,7 +35,7 @@ public class upload {
 
     @Autowired
     private GridFsTemplate gridFsTemplate;
-
+        static int x=0;
     @RequestMapping("/uploadImage")
     public String upload(@RequestParam("file") MultipartFile file , @RequestParam(value ="name" , defaultValue ="0") String name) throws IOException {
 
