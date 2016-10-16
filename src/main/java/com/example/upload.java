@@ -37,11 +37,10 @@ public class upload {
     private GridFsTemplate gridFsTemplate;
 
     @RequestMapping("/uploadImage")
-    public String upload(@RequestParam("file") MultipartFile file) throws IOException {
+    public String upload(@RequestParam("file") MultipartFile file , @RequestParam(value ="name" , defaultValue ="0") String name) throws IOException {
 
         InputStream inputStream = new ByteArrayInputStream(file.getBytes());
-        gridFsTemplate.store(inputStream,"name"+1,"image/png");
-
+        if(name.equals(0))name=""+x++;
         //FileUtils.writeByteArrayToFile(new File("C:\\Users\\babdelfattah\\Desktop\\"+file.getOriginalFilename()),file.getBytes());
 
         return "Your image has been uploaded successfully :D";
