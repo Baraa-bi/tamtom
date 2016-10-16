@@ -42,7 +42,7 @@ public class upload {
         InputStream inputStream = new ByteArrayInputStream(file.getBytes());
         if(name.equals(0))name=""+x++;
         //FileUtils.writeByteArrayToFile(new File("C:\\Users\\babdelfattah\\Desktop\\"+file.getOriginalFilename()),file.getBytes());
-
+        gridFsTemplate.store(inputStream,name,"image/png");
         return "Your image has been uploaded successfully :D";
     }
 
