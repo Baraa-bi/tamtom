@@ -1,5 +1,4 @@
-package hello;
-
+package com.example.hello;
 public class HelloMessage {
 
     private String name;
