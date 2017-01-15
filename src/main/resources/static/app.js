@@ -39,6 +39,8 @@ function sendName() {
 
 function showGreeting(message) {
     $("#greetings").append("<tr><td>" + message + "</td></tr>");
+    $( "#message" ).val("");
+
 }
 
 $(function () {
