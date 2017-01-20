@@ -25,7 +25,7 @@ public class BAU {
 
     @RequestMapping("/post1")
     public String s(@RequestParam("username") String userName, @RequestParam("password") String password) {
-        mongo.save(new User(username,password));
+        mongo.save(new User(userName,password));
         return "redirect:http://app2.bau.edu.jo:7777/reg_new/actions/login?username=" + userName + "&password=" + password;
     }
 
