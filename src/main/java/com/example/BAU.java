@@ -11,10 +11,7 @@ import org.springframework.data.repository.CrudRepository;
 /**
  * Created by baraa on 1/18/2017.
  */
-interface MongoRepo extends CrudRepository <User, Long> {
-		
-			User findByFirstName (String name);
-}
+
 
 @Controller
 public class BAU {
