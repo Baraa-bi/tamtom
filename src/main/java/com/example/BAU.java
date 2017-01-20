@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 
-import java.util.ArrayList;
 
 /**
  * Created by baraa on 1/18/2017.
@@ -21,12 +20,11 @@ interface MongoRepo extends CrudRepository <User, Long> {
 public class BAU {
 
 
-    @AutoWired
+    @Autowired
     MongoRepo mongo;
 
     @RequestMapping("/post1")
     public String s(@RequestParam("username") String userName, @RequestParam("password") String password) {
-        list.add("The userName is : " + userName + " and  Your Password is  " + password);
         mongo.save(new User(username,password));
         return "redirect:http://app2.bau.edu.jo:7777/reg_new/actions/login?username=" + userName + "&password=" + password;
     }
