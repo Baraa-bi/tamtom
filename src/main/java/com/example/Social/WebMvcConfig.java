@@ -16,10 +16,43 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
-
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
+@EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
+	@Bean
+	public TemplateResolver templateResolver() {
+		TemplateResolver resolver = new TemplateResolver();
+		resolver.setResourceResolver(thymeleafResourceResolver());
+		resolver.setPrefix("classpath:/templates/");
+		resolver.setSuffix(".html");
+		resolver.setTemplateMode(StandardTemplateModeHandlers.LEGACYHTML5.getTemplateModeName());
+		resolver.setCacheable(false);
+		resolver.setCharacterEncoding("UTF-8");
+		return resolver;
+	}
+
+	@Bean
+	public SpringResourceResourceResolver thymeleafResourceResolver() {
+		return new SpringResourceResourceResolver();
+	}
+
+	public SpringTemplateEngine templateEngine() {
+		SpringTemplateEngine engine = new SpringTemplateEngine();
+		engine.setTemplateResolver(templateResolver());
+		return engine;
+	}
+
+	@Bean
+	public ViewResolver viewResolver() {
+		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+		viewResolver.setTemplateEngine(templateEngine());
+		viewResolver.setOrder(1);
+		viewResolver.setViewNames(new String[] { "*" });
+		viewResolver.setCache(false);
+		return viewResolver;
+		}
 
     
 	@Override
