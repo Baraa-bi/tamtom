@@ -1,4 +1,4 @@
-package com.example.parsingHtml;
+package com.example;
 
 import org.json.JSONArray;
 import org.json.JSONException;
